@@ -1,0 +1,47 @@
+/* Add here all your CSS customizations */
+@import url('https://fonts.googleapis.com/css?family=Tajawal&display=swap');
+
+body *:not(.fa):not(i) {
+    font-family: 'Tajawal', sans-serif !important;
+}
+
+.mb-2 {
+    margin-bottom: 20px;
+}
+.custom-parallax-medium-padding {
+    padding: 190px 0 !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+.slider {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+html .slider-title {
+    background-color: rgb(255 255 255 / 51%);
+    color: #172536 !important;
+}
+.slider-p {
+    background-color: rgb(255 255 255 / 51%);
+    color: #172536 !important;
+    margin: 10px 0;
+}
+.main iframe {
+    width: 100%;
+}
+#contactForm label {
+    font-weight: bolder;
+    color: #000;
+}
+.table-responsive, .table-responsive th, .partner-img {
+    text-align: center !important;
+}
+.blog-date {
+    direction: ltr;
+}
+.partner-img img{
+    margin: 0 auto;
+}
