@@ -8,7 +8,7 @@
 						<div class="col-md-12 slider">
 							<h1 class="slider-title text-uppercase text-color-light font-weight-bold center m-none">اثراء للاستشارات الإقتصادية والاداريه</h1>
 							<p class="slider-p">يمكنك الان حساب المستحقات العماليه بسهوله ويسر</p>
-							<a href="./benefits-workers.php" class="btn btn-primary btn-lg">حساب المستحقات العماليه</a>
+							<a href="./benefits-workers" class="btn btn-primary btn-lg">حساب المستحقات العماليه</a>
 						</div>
 					</div>
 				</div>

@@ -26,9 +26,6 @@
 	<script src="vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
 	<script src="vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 
-	<!-- Demo -->
-	<script src="js/demos/demo-finance.js"></script>
-
 	<!-- CkEditor -->
 	<script src="js/ckeditor_full/ckeditor.js"></script>
 

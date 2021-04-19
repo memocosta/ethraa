@@ -1,10 +1,10 @@
 export const calc = (val: any) => {
-    let { maternityLeaveMonths2, maternityLeaveDays2, maternityLeaveMonths, maternityLeaveDays, partialDisability, TotalDisability, dead, inCase, workInjuryMonths, workInjuryDays, sickDays, daysForVacation2, daysForVacation, workHours, additionHours, weeklyRest, delaySeleryMonths, delaySeleryDays, noticePeriodMonths, noticePeriodDays, startWork, endWork, discountDaysFromEnd, discountDaysBefore20, discountDaysAfter20, vacationDaysPaid, selery, seleryPlus, endReason, additionVacation, discountInsurance } = val
+    let { maternityLeaveMonths2, maternityLeaveDays2, maternityLeaveMonths, maternityLeaveDays, partialDisability, TotalDisability, dead, workInjuryMonths, workInjuryDays, sickDays, daysForVacation2, daysForVacation, workHours, additionHours, weeklyRest, delaySaleryMonths, delaySaleryDays, noticePeriodMonths, noticePeriodDays, startWork, endWork, discountDaysFromEnd, discountDaysBefore20, discountDaysAfter20, vacationDaysPaid, salery, saleryPlus, endReason, additionVacation, discountInsurance } = val;
 
     // حساب تاريخ مستحقات مكافاة نهاية الخدمة
-    let endDateAward = (startDate:any, endData:any, discountDaysFromEnd = 0, selery:any, seleryPlus = 0, endReason:any, discountInsurance = 0) => {
+    let endDateAward = (startDate:any, endData:any, discountDaysFromEnd = 0, salery:any, saleryPlus = 0, endReason:any, discountInsurance = 0) => {
         // var now = new Date('12/31/2020');
-        // console.log(selery, endReason, seleryPlus, discountDaysFromEnd, endData, startDate)
+        // console.log(salery, endReason, saleryPlus, discountDaysFromEnd, endData, startDate)
         var now:any = new Date(endData);
         var today = new Date(now.getYear(), now.getMonth(), now.getDate());
 
@@ -80,7 +80,7 @@ export const calc = (val: any) => {
         // check if he spent more than 5 your before this data
         let spentMoreThan_5_years = years > 5 ? years - 5 : false;
 
-        let totalSelery = +selery + +seleryPlus;
+        let totalSalery = +salery + +saleryPlus;
 
         let calcYearsAmount = 0;
         let calcMonthAmount = 0;
@@ -90,30 +90,30 @@ export const calc = (val: any) => {
         let totalFirst_5_years = 0;
         let totalLast_5_years = 0;
         if (spentMoreThan_5_years) {
-            calcYearsAmount += 5 * (totalSelery / 26) * 15;
-            calcMonthAmount += (month / 12) * totalSelery;
-            calcdaysAmount += (days / 365) * totalSelery;
+            calcYearsAmount += 5 * (totalSalery / 26) * 15;
+            calcMonthAmount += (month / 12) * totalSalery;
+            calcdaysAmount += (days / 365) * totalSalery;
             
             // total amount for first 5 years
             first_5_years = calcYearsAmount;
             // total amount for after 5 years
-            last_5_years = spentMoreThan_5_years * totalSelery;
+            last_5_years = spentMoreThan_5_years * totalSalery;
             
             totalFirst_5_years = calcYearsAmount;
 
-            calcYearsAmount += spentMoreThan_5_years * totalSelery;
+            calcYearsAmount += spentMoreThan_5_years * totalSalery;
             
             totalLast_5_years = calcYearsAmount + calcMonthAmount + calcdaysAmount;
 
 
         } else {
-            calcYearsAmount += years * (totalSelery / 26) * 15;
+            calcYearsAmount += years * (totalSalery / 26) * 15;
 
-            calcMonthAmount += (month / 12) * (totalSelery / 26) * 15;
+            calcMonthAmount += (month / 12) * (totalSalery / 26) * 15;
 
-            calcdaysAmount += (days / 360) * (totalSelery / 26) * 15;
+            calcdaysAmount += (days / 360) * (totalSalery / 26) * 15;
 
-            first_5_years = years * (totalSelery / 26) * 15;
+            first_5_years = years * (totalSalery / 26) * 15;
             totalFirst_5_years = calcYearsAmount + calcMonthAmount + calcdaysAmount;
         }
 
@@ -355,7 +355,7 @@ export const calc = (val: any) => {
     }
 
     // حساب رصيد الاجازات
-    let calcLawDate = (startDate:any, endDate:any, discountDaysBefore20 = 0, discountDaysAfter20 = 0, vacationDaysPaid = 0, selery:any, additionVacation = 30) => {
+    let calcLawDate = (startDate:any, endDate:any, discountDaysBefore20 = 0, discountDaysAfter20 = 0, vacationDaysPaid = 0, salery:any, additionVacation = 30) => {
 
         let daysBefore20:any = false;
         let daysAfter20:any = false;
@@ -622,7 +622,7 @@ export const calc = (val: any) => {
 
         let onlyTotalVacationDaysWithOutPaidDays = totalVacationDays - vacationDaysPaid;
 
-        let moneyForAnnualVacation = (selery / 26) * onlyTotalVacationDaysWithOutPaidDays;
+        let moneyForAnnualVacation = (salery / 26) * onlyTotalVacationDaysWithOutPaidDays;
 
         return {
             daysBefore20: {
@@ -646,14 +646,14 @@ export const calc = (val: any) => {
                 title: `مستحقات الاجازات السنوية`,
                 total: moneyForAnnualVacation.toFixed(3)
             },
-            selery
+            salery
         }
 
     }
 
     let calc_noticePeriod = (noticePeriodDays = 0, noticePeriodMonths = 0) => {
-        let calcDays = (selery / 26) * noticePeriodDays;
-        let calcMonths = selery * noticePeriodMonths;
+        let calcDays = (salery / 26) * noticePeriodDays;
+        let calcMonths = salery * noticePeriodMonths;
 
         return {
             title: `اجمالى المستحق عن فترة الانزار`,
@@ -665,22 +665,22 @@ export const calc = (val: any) => {
         }
     }
 
-    let calc_delaySelery = (delaySeleryDays = 0, delaySeleryMonths = 0) => {
-        let calcDays = (selery / 26) * delaySeleryDays;
-        let calcMonths = selery * delaySeleryMonths;
+    let calc_delaySalery = (delaySaleryDays = 0, delaySaleryMonths = 0) => {
+        let calcDays = (salery / 26) * delaySaleryDays;
+        let calcMonths = salery * delaySaleryMonths;
 
         return {
             title: `اجمالى المستحق من الاجور المتاخرة`,
             total: (calcDays + calcMonths).toFixed(3),
-            delaySeleryDays,
-            delaySeleryMonths,
+            delaySaleryDays,
+            delaySaleryMonths,
             calcDays: calcDays.toFixed(3),
             calcMonths
         }
     }
 
     let calc_weeklyRest = (weeklyRest = 0) => {
-        let calcDays = (((selery / 26) * weeklyRest) / 100) * 150;
+        let calcDays = (((salery / 26) * weeklyRest) / 100) * 150;
 
         return {
             title: `اجمالى المستحق عن بدل الراحة الاسبوعية`,
@@ -691,7 +691,7 @@ export const calc = (val: any) => {
     }
 
     let calc_additionHours = (additionHours = 0, workHours:any) => {
-        let calcHours = ((((selery / 26) / workHours) * additionHours) / 100) * 125;
+        let calcHours = ((((salery / 26) / workHours) * additionHours) / 100) * 125;
 
         return {
             title: `اجمالى المستحق عن بدل ساعات العمل الاضافى`,
@@ -703,7 +703,7 @@ export const calc = (val: any) => {
     }
 
     let calc_daysForVacation = (daysForVacation = 0) => {
-        let calcDays = (selery / 26) * daysForVacation;
+        let calcDays = (salery / 26) * daysForVacation;
 
         return {
             title: `اجمالى المستحق عن بدل الاعياد`,
@@ -714,7 +714,7 @@ export const calc = (val: any) => {
     }
 
     let calc_daysForVacation2 = (daysForVacation2 = 0) => {
-        let calcDays = (((selery / 26) * daysForVacation2) / 100) * 200;
+        let calcDays = (((salery / 26) * daysForVacation2) / 100) * 200;
 
         return {
             title: `اجمالى المستحق عن بدل الاعياد التى تصادف راحة اسبوعية`,
@@ -733,10 +733,10 @@ export const calc = (val: any) => {
 
         let ifMoreThan_25_days = Math.abs((ifMoreThan_50_days + ifMoreThan_75_days + ifMoreThan_100_days) - sickDays);
 
-        let calcDays_100 = (((selery / 26) * ifMoreThan_100_days) / 100) * 100;
-        let calcDays_75 = (((selery / 26) * ifMoreThan_75_days) / 100) * 75;
-        let calcDays_50 = (((selery / 26) * ifMoreThan_50_days) / 100) * 50;
-        let calcDays_25 = (((selery / 26) * ifMoreThan_25_days) / 100) * 25;
+        let calcDays_100 = (((salery / 26) * ifMoreThan_100_days) / 100) * 100;
+        let calcDays_75 = (((salery / 26) * ifMoreThan_75_days) / 100) * 75;
+        let calcDays_50 = (((salery / 26) * ifMoreThan_50_days) / 100) * 50;
+        let calcDays_25 = (((salery / 26) * ifMoreThan_25_days) / 100) * 25;
 
         return {
             "calcDays_100": {
@@ -777,18 +777,18 @@ export const calc = (val: any) => {
         let calcFirstDays_6 = 0;
 
         if (MoreThan_6_Month) {
-            calcMonth += (((selery) * 6) / 100) * 100;
+            calcMonth += (((salery) * 6) / 100) * 100;
             moneyForFullSalary = calcMonth;
             calcFirstMonth_6 = calcMonth;
-            calcMonth += (((selery) * MoreThan_6_Month) / 100) * 50;
-            calcLastMonth_6 = (((selery) * MoreThan_6_Month) / 100) * 50;
-            calcDays = (((selery / 26) * workInjuryDays) / 100) * 50;
+            calcMonth += (((salery) * MoreThan_6_Month) / 100) * 50;
+            calcLastMonth_6 = (((salery) * MoreThan_6_Month) / 100) * 50;
+            calcDays = (((salery / 26) * workInjuryDays) / 100) * 50;
             calcFirstDays_6 = calcDays;
             moneyForHalfSalary = Math.abs((calcMonth + calcDays) - moneyForFullSalary);
         } else {
-            calcMonth += (((selery) * workInjuryMonths) / 100) * 100;
+            calcMonth += (((salery) * workInjuryMonths) / 100) * 100;
             calcFirstMonth_6 = calcMonth;
-            calcDays = (((selery / 26) * workInjuryDays) / 100) * 100;
+            calcDays = (((salery / 26) * workInjuryDays) / 100) * 100;
             calcFirstDays_6 = calcDays;
             moneyForFullSalary = calcMonth + calcDays;
         }
@@ -818,7 +818,7 @@ export const calc = (val: any) => {
         let calcDays;
         let fixedVal;
         if (dead == "true") {
-            calcDays = (selery / 26) * 1500;
+            calcDays = (salery / 26) * 1500;
             fixedVal = 10000; // قيمه الديه الشرعيه
 
             return {
@@ -840,7 +840,7 @@ export const calc = (val: any) => {
         let calcDays;
         let fixedVal;
         if (TotalDisability == "true") {
-            calcDays = (selery / 26) * 2000;
+            calcDays = (salery / 26) * 2000;
             fixedVal = 13333.33; // قيمه الديه الشرعيه
 
             return {
@@ -862,7 +862,7 @@ export const calc = (val: any) => {
         let calcDays;
         let fixedVal;
         if (partialDisability > 0) {
-            calcDays = (((selery / 26) * 2000) / 100) * partialDisability;
+            calcDays = (((salery / 26) * 2000) / 100) * partialDisability;
             fixedVal = (13333.33 / 100) * partialDisability; // قيمه الديه الشرعيه
 
             return {
@@ -882,8 +882,8 @@ export const calc = (val: any) => {
     }
 
     let calc_maternityLeave = (maternityLeaveDays = 0, maternityLeaveMonths = 0) => {
-        let calcDays = (selery / 26) * maternityLeaveDays;
-        let calcMonths = selery * maternityLeaveMonths;
+        let calcDays = (salery / 26) * maternityLeaveDays;
+        let calcMonths = salery * maternityLeaveMonths;
 
         return {
             title: `اجمالى المستحق إجازة الوضع`,
@@ -896,8 +896,8 @@ export const calc = (val: any) => {
     }
 
     let calc_maternityLeave2 = (maternityLeaveDays2 = 0, maternityLeaveMonths2 = 0) => {
-        let calcDays = (selery / 26) * maternityLeaveDays2;
-        let calcMonths = selery * maternityLeaveMonths2;
+        let calcDays = (salery / 26) * maternityLeaveDays2;
+        let calcMonths = salery * maternityLeaveMonths2;
 
         return {
             title: `اجمالى المستحق إجازة عدة`,
@@ -911,13 +911,13 @@ export const calc = (val: any) => {
 
     // // // // //
 
-    let endDateAwardRes = endDateAward(startWork, endWork, discountDaysFromEnd, selery, seleryPlus, endReason, discountInsurance);
+    let endDateAwardRes = endDateAward(startWork, endWork, discountDaysFromEnd, salery, saleryPlus, endReason, discountInsurance);
 
-    let calcLawDateRes = calcLawDate(startWork, endWork, discountDaysBefore20, discountDaysAfter20, vacationDaysPaid, selery, additionVacation);
+    let calcLawDateRes = calcLawDate(startWork, endWork, discountDaysBefore20, discountDaysAfter20, vacationDaysPaid, salery, additionVacation);
 
     let calc_noticePeriodRes = calc_noticePeriod(noticePeriodDays, noticePeriodMonths);
 
-    let calc_delaySeleryRes = calc_delaySelery(delaySeleryDays, delaySeleryMonths);
+    let calc_delaySaleryRes = calc_delaySalery(delaySaleryDays, delaySaleryMonths);
 
     let calc_weeklyRestRes = calc_weeklyRest(weeklyRest);
 
@@ -945,7 +945,7 @@ export const calc = (val: any) => {
         endDateAwardRes,
         calcLawDateRes,
         calc_noticePeriodRes,
-        calc_delaySeleryRes,
+        calc_delaySaleryRes,
         calc_weeklyRestRes,
         calc_additionHoursRes,
         calc_daysForVacationRes,
@@ -957,12 +957,12 @@ export const calc = (val: any) => {
         calc_inCasePartialDisabilityRes,
         calc_maternityLeaveRes,
         calc_maternityLeaveRes2,
-        selery
+        salery
     }
 
     let listOfResult = [
         calc_noticePeriodRes,
-        calc_delaySeleryRes,
+        calc_delaySaleryRes,
         calc_weeklyRestRes,
         calc_additionHoursRes,
         calc_daysForVacationRes,

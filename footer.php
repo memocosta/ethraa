@@ -96,11 +96,11 @@
 	<script src="vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
 	<script src="vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 
-	<!-- Demo -->
-	<script src="js/demos/demo-finance.js"></script>
-
 	<!-- Theme Custom -->
 	<script src="js/custom.js"></script>
+
+	<!-- Benefits Calculator -->
+	<script src="js/calc.js"></script>
 
 	<!-- Theme Initialization Files -->
 	<script src="js/theme.init.js"></script>
