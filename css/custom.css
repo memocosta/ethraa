@@ -1,6 +1,6 @@
 /* Add here all your CSS customizations */
-@import url('https://fonts.googleapis.com/css?family=Tajawal&display=swap');
 
+@import url('https://fonts.googleapis.com/css?family=Tajawal&display=swap');
 body *:not(.fa):not(i) {
     font-family: 'Tajawal', sans-serif !important;
 }
@@ -8,27 +8,125 @@ body *:not(.fa):not(i) {
 .mb-2 {
     margin-bottom: 20px;
 }
+
+.pd-15 {
+    padding: 0 15px;
+}
+
 .custom-parallax-medium-padding {
     padding: 190px 0 !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
 }
+
 .slider {
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
+
 html .slider-title {
     background-color: rgb(255 255 255 / 51%);
     color: #172536 !important;
 }
+
 .slider-p {
     background-color: rgb(255 255 255 / 51%);
     color: #172536 !important;
     margin: 10px 0;
 }
+
 .main iframe {
     width: 100%;
 }
+
+.form-result {
+    display: none;
+}
+
+.thead-inverse th {
+    text-align: right;
+}
+
+#calc-worker .col-md-6 {
+    float: right;
+}
+
+.itqan {
+    height: 75px;
+    margin: 0 auto;
+}
+
+.area-print {
+    display: none;
+}
+
+.page2 .endDateAwardRes {
+    overflow: hidden;
+}
+
+.form-result .table-striped td {
+    text-align: center;
+    vertical-align: middle;
+    color: #474747;
+    font-weight: bold;
+}
+
+.form-result hr {
+    margin: 0 auto;
+    line-height: 1;
+    display: block;
+    height: 1px;
+    background: transparent;
+    width: 100%;
+    border: none;
+    border-top: solid 1px #4e4e4e;
+}
+
+#cli {
+    display: none;
+}
+
+
+/* start ======== print case */
+
+@page {
+    margin: 0;
+}
+
+.body-print strong {
+    font-size: 13px !important;
+}
+
+.body-print .table {
+    margin-bottom: 5px;
+    border: 2px solid #b3a6a6;
+}
+
+.body-print td,
+.body-print th {
+    border: 2px solid #b3a6a6 !important;
+    color: #4e4e4e !important;
+    font-weight: bold;
+    font-size: 12px !important;
+}
+
+.body-print .form-result hr {
+    background: #4e4e4e !important;
+}
+
+.body-print .table span {
+    color: #4e4e4e !important;
+    font-weight: bold;
+    font-size: 12px !important;
+}
+
+.body-print .red-print,
+.body-print .red-print span {
+    color: chocolate !important;
+}
+
+
+/* end   ======== print case */
