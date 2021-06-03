@@ -1,6 +1,6 @@
 <?php include 'header.php' ?>
 
-<div role="main" class="main">
+<div role="main" class="main benfit-main">
     <section class="page-header page-header-color page-header-quaternary page-header-more-padding custom-page-header">
         <div class="container">
             <div class="row">
@@ -14,6 +14,8 @@
                     <h1> خدماتنا </h1>
                     <br><br>
                     <h2 class="custom-text-color-1">حساب المستحقات العماليه</h2>
+                    <br>
+                    <p id="bee" class="custom-text-color-1"> نسخ المستحقات الاجمالية <i class="fa fa-copy"></i> </p>
                 </div>
             </div>
         </div>
@@ -980,6 +982,7 @@
                         </table>
                     </div>
                 </div>
+
                 <div class="page6">
                     <div class="table-responsive">
                         <table id="t30" class="table table-bordered table-striped table-hover inCaseDead">

@@ -49,6 +49,16 @@
 						<div class="form-group">
 							<div class="col-md-12">
 								<div class="custom-input-box">
+									<label for="pass">كلمة المرور </label>
+									<input type="password" value="<?php echo $sAdmin['pass']; ?>" name="val[pass]" maxlength="100" class="form-control" id="pass" placeholder="كلمة المرور*" required>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-12">
+								<div class="custom-input-box">
 									<label for="address">العنوان </label>
 									<textarea  rows="3" class="form-control" name="val[address]" id="address" placeholder="العنوان*" required><?php echo $sAdmin['address']; ?></textarea>
 								</div>
@@ -139,6 +149,16 @@
 						<div class="form-group">
 							<div class="col-md-12">
 								<div class="custom-input-box">
+									<label for="judicial_accountability_short"> المحاسبه القضائية عنوان </label>
+									<input type="text" value="<?php echo $sAdmin['judicial_accountability_title']; ?>" name="val[judicial_accountability_title]" data-msg-required="المحاسبه القضائية" maxlength="100" class="form-control" id="judicial_accountability_title" placeholder="المحاسبه القضائية*" required>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-12">
+								<div class="custom-input-box">
 									<label for="judicial_accountability_short">المحاسبه القضائية مختصرة </label>
 									<textarea  rows="3" class="form-control" name="val[judicial_accountability_short]" id="judicial_accountability_short" placeholder="المحاسبه القضائية مختصرة*" required><?php echo $sAdmin['judicial_accountability_short']; ?></textarea>
 								</div>
@@ -159,6 +179,16 @@
 						<div class="form-group">
 							<div class="col-md-12">
 								<div class="custom-input-box">
+									<label for="consulting_short"> الاستشارات عنوان </label>
+									<input type="text" value="<?php echo $sAdmin['consulting_title']; ?>" name="val[consulting_title]" data-msg-required="الاستشارات" maxlength="100" class="form-control" id="consulting_title" placeholder="الاستشارات*" required>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-12">
+								<div class="custom-input-box">
 									<label for="consulting_short"> الاستشارات مختصرة </label>
 									<textarea  rows="3" class="form-control" name="val[consulting_short]" id="consulting_short" placeholder="الاستشارات مختصرة*" required><?php echo $sAdmin['consulting_short']; ?></textarea>
 								</div>
@@ -171,6 +201,16 @@
 								<div class="custom-input-box">
 									<label for="consulting">الاستشارات </label>
 									<textarea  rows="3" class="form-control" name="val[consulting]" id="consulting" placeholder="الاستشارات*" required><?php echo $sAdmin['consulting']; ?></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-12">
+								<div class="custom-input-box">
+									<label for="economic_studies_title"> الدراسات الجدوى الإقتصادية عنوان </label>
+									<input type="text" value="<?php echo $sAdmin['economic_studies_title']; ?>" name="val[economic_studies_title]" data-msg-required="الدراسات الجدوى الإقتصادية" maxlength="100" class="form-control" id="economic_studies_title" placeholder="الدراسات الجدوى الإقتصادية*" required>
 								</div>
 							</div>
 						</div>

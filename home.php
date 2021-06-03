@@ -73,7 +73,9 @@
 						<section class="section section-no-border match-height m-none">
 							<div class="row m-none">
 								<div class="col-half-section col-half-section-left">
-									<h2 class="text-uppercase font-weight-bold">المحاسبه القضائية</h2>
+									<h2 class="text-uppercase font-weight-bold">
+										<?php echo $sAdmin['judicial_accountability_title']; ?>
+									</h2>
 									<p class="custom-text-color-1 mb-xlg">
 										<?php echo $sAdmin['judicial_accountability_short']; ?>
 									</p>
@@ -88,7 +90,9 @@
 						<section class="section section-no-border match-height m-none">
 							<div class="row m-none">
 								<div class="col-half-section col-half-section-right custom-text-align-right">
-									<h2 class="text-uppercase font-weight-bold">الاستشارات</h2>
+									<h2 class="text-uppercase font-weight-bold">
+										<?php echo $sAdmin['consulting_title']; ?>
+									</h2>
 									<p class="custom-text-color-1 mb-xlg">
 										<?php echo $sAdmin['consulting_short']; ?>
 									</p>
@@ -116,7 +120,8 @@
 						<section class="section section-no-border match-height m-none">
 							<div class="row m-none">
 								<div class="col-half-section col-half-section-left">
-									<h2 class="text-uppercase font-weight-bold">الدراسات الجدوى الإقتصادية
+									<h2 class="text-uppercase font-weight-bold">
+										<?php echo $sAdmin['economic_studies_title']; ?>
 									</h2>
 									<p class="custom-text-color-1 mb-xlg">
 										<?php echo $sAdmin['economic_studies_short']; ?>

@@ -995,6 +995,7 @@
 
         $(".receivables").html(tableHtml);
         $(".form-work").hide();
+        $("#bee").show();
         $(".form-result").show();
         $(".area-print").show();
         // receivables table ============= end ======================
@@ -1249,25 +1250,41 @@
     $("#back-form").click(function(e) {
         $(".form-work").show();
         $(".form-result").hide();
+        $("#bee").hide();
         $(".area-print").hide();
         $('html, body').animate({
             scrollTop: 0
         }, 1000);
     });
 
+    $("#bee").click(function(e) {
+        html2canvas(document.querySelector("#t4")).then(canvas => {
+            canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]));
+            var image = new Image();
+            image.src = canvas.toDataURL();
+            image.height = document.querySelector("#t4").clientHeight;
+            image.width = document.querySelector("#t4").clientWidth;
+            $("#v4").html(image);
+        });
+    });
+
     $(".form-result table").click(function() {
-        $("#v4").html("");
-        $(this).clone().appendTo("#v4");
-        $('html, body').animate({
-            scrollTop: 0
-        }, 1000);
-        $("#cli").show();
+        let tid = $(this).attr('id');
+        console.log(tid);
+        if (tid != 't4') {
+            $("#v4").html("");
+            $(this).clone().appendTo("#v4");
+            $('html, body').animate({
+                scrollTop: 0
+            }, 1000);
+            $("#cli").show();
+        }
     });
 
     $("#cli").click(function(e) {
         $("#cli").val("جارى التحويل");
         html2canvas(document.querySelector("#v4")).then(canvas => {
-            //canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]));
+            // canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]));
             $("#v4").html(canvas);
             console.log("is copied")
             $("#cli").val("تم التحويل");

@@ -70,7 +70,7 @@
 						<div class="header-column">
 							<div class="header-logo">
 								<a href="./">
-									<img alt="Porto Finance" width="" height="165" src="img/logo1.png">
+									<img alt="Porto Finance" width="" height="75" src="img/logo20.png">
 								</a>
 							</div>
 						</div>

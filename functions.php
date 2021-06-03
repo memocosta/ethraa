@@ -96,129 +96,27 @@ function getIdName($id, $table) {
   return $result[0]['name'];
 }
 
-function isUser() {
-  global $db;
-  $isUser = false;
-  
-  if(isset($_COOKIE['biddest_email'])) {
-    $query="SELECT * FROM `users` WHERE `email` = '".$_COOKIE['biddest_email']."' AND `pass` = '".$_COOKIE['biddest_pass']."'";
-  } else if(isset($_SESSION['email'])) {
-    $query="SELECT * FROM `users` WHERE `email` = '".$_SESSION['email']."' AND `pass` = '".$_SESSION['pass']."'";
-  } else {
-    return false;
-  }
-  
-  if(!$result = $db->query($query)){
-    die('There was an error running the query [' . $db->error . ']');
-  }
-  
-  if($result->num_rows > 0) { 
-    $isUser = true; 
-    while($row = $result->fetch_assoc()){
-      $_SESSION['user'] = $row;
-    }
-    $result->free();
-  }
+function login($vals) {
+  $row = array();
+  $table = 'cpanel';
+  $where = "WHERE `email` = '".$vals['email']."' AND `pass` = '".$vals['pass']."'";
+  $row = selectTable($table, $where);
 
-  return $isUser;
+  if(empty($row)) {
+    return false;
+  } else {
+    return true;
+  }
 }
 
 function isAdmin() {
-  if (!isUser()) {
+  if (!isset($_SESSION['admin'])) {
     return false;
   } else {
-    if (!isset($_SESSION['admin'])) {
-      return false;
-    } else {
-      return true;
-    } 
-  }
+    return true;
+  } 
 }
 
-function checkUser($value) {
-  global $db;
-  $isUser = false;
-  
-  $query="SELECT * FROM `users` WHERE `email` = '".$value."' ";
-  
-  if(!$result = $db->query($query)){
-    die('There was an error running the query [' . $db->error . ']');
-  }
-  
-  if($result->num_rows > 0) { 
-    $isUser = true; 
-    while($row = $result->fetch_assoc()){
-      $_SESSION['user'] = $row;
-    }
-    $result->free();
-  }
-
-  return $isUser;
-}
-
-function signup($vals) {
-  $user = array();
-
-  if(isset($vals['email'])) {
-    $table = 'users';
-    $where = "WHERE `email` = '".$vals['email']."'";
-    $user = selectTable($table, $where);
-  } else {
-    return false;
-  }
-
-  if(!empty($user)) {
-    return false;
-  } else {
-    return insertTable($table, $vals);
-  }
-}
-
-function login($vals) {
-  $user = array();
-
-  if(isset($vals['email'])) {
-    $table = 'users';
-    if (isset($vals['admin'])) {
-      $where = "WHERE `email` = '".$vals['email']."' AND `pass` = '".$vals['pass']."' AND `admin` = '1'";
-    } else {
-      $where = "WHERE `email` = '".$vals['email']."' AND `pass` = '".$vals['pass']."'";
-    }
-    $user = selectTable($table, $where);
-  } else {
-    return false;
-  }
-
-  if(empty($user)) {
-    return false;
-  } else {
-    return getUser($vals['email']);
-  }
-}
-
-function getUser($value) {
-  global $db;
-  $table = 'users';
-  $where = "WHERE `email` = '$value' OR `id` = '$value' OR `tokens` = '$value'";
-  $user = selectTable($table, $where);
-  return $user[0];
-}
-
-function getUsers() {
-  global $db;
-  $users = selectTable('users', '');
-  $i = 0;
-  foreach ($users as $user) {
-    $users[$i]['full-name'] = $user['fname'].' '.$user['lname'];
-    $users[$i]['uname'] = '<img class="avatar" src="../pics/avatar'.$user['avatar'].'.png" /> '.$user['name'];
-    $users[$i]['country'] = getIdName($user['country'], 'country');
-    $users[$i]['gender'] = getIdName($user['gender'], 'gender');
-    $users[$i]['age'] = date("Y")- date('Y', $user['birth_date']);
-    $users[$i]['adminhtml'] = ($user['admin'] == 1) ? '<i class="fa fa-thumbs-up" aria-hidden="true"></i>' : '<i class="fa fa-thumbs-down" aria-hidden="true"></i>';
-    $i++;
-  }
-  return $users;
-}
 
 function getSettings() {
   global $db;

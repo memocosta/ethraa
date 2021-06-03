@@ -1,7 +1,7 @@
 /* Add here all your CSS customizations */
 
 @import url('https://fonts.googleapis.com/css?family=Tajawal&display=swap');
-body *:not(.fa):not(i) {
+body *:not(.fa):not(i):not(.benfit-main td):not(.benfit-main th) {
     font-family: 'Tajawal', sans-serif !important;
 }
 
@@ -87,6 +87,24 @@ html .slider-title {
 
 #cli {
     display: none;
+}
+
+#bee {
+    display: none;
+    cursor: pointer;
+}
+
+#v4 {
+    margin-bottom: 15px;
+}
+
+#v4 img {
+    width: 100%;
+}
+
+.benfit-main td,
+.benfit-main th {
+    font-family: system-ui !important;
 }
 
 

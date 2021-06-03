@@ -1,8 +1,8 @@
 <?php
 
-require "connection.php";
+require "../connection.php";
 
-include "functions.php";
+include "../functions.php";
 
 include "main.php";
 

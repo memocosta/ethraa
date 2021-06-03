@@ -1,7 +1,5 @@
 <?php
 
-$sUser = isUser() ? $_SESSION['user'] : array();
-
 $sAdmin = getSettings();
 
 $path_info = parse_path();

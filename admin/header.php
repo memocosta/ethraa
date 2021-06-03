@@ -85,6 +85,11 @@
 										<nav>
 											<ul class="nav nav-pills d-flex" id="mainNav">
 												<li>
+													<a href="../api?key=logout">
+														خروج
+													</a>
+												</li>
+												<li>
 													<a href="./partner">
 														شركائنا
 													</a>
