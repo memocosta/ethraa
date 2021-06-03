@@ -14,8 +14,6 @@
                     <h1> خدماتنا </h1>
                     <br><br>
                     <h2 class="custom-text-color-1">حساب المستحقات العماليه</h2>
-                    <br>
-                    <p id="bee" class="custom-text-color-1"> نسخ المستحقات الاجمالية <i class="fa fa-copy"></i> </p>
                 </div>
             </div>
         </div>
@@ -24,6 +22,10 @@
     <div class="container">
 
         <div class="row pt-sm mb-xl">
+
+            <div class="col-md-12 center pt-md benfits-nonprint area-print">
+                <input type="button" id="bee" value="نسخ المستحقات الاجمالية" class="btn btn-primary btn-block mb-xlg">
+            </div>
 
             <div class="col-md-12 form-work">
 
@@ -424,6 +426,7 @@
                         <br>
                         <h2 class="finalAmount red-print"></h2>
                     </div>
+                    <br><hr><br>
                 </div>
 
                 <div class="page3">
@@ -646,7 +649,7 @@
                         </table>
                     </div>
                     <div class="table-responsive delaySaleryDays">
-                        <hr><br>
+                        <br><br>
                         <table id="t14" class="table table-bordered table-striped table-hover">
                             <tr>
                                 <td class="red-print"><strong>المستحق من الاجور المتاخرة</strong></td>
@@ -683,7 +686,7 @@
                         </table>
                     </div>
                     <div class="table-responsive weeklyRestRes">
-                        <hr><br>
+                        <br><br>
                         <table id="t16" class="table table-bordered table-striped table-hover">
                             <tr>
                                 <td class="red-print"><strong>المستحق عن بدل الراحة الاسبوعية</strong></td>
@@ -706,7 +709,7 @@
                         </table>
                     </div>
                     <div class="table-responsive additionHoursRes">
-                        <hr><br>
+                        <br><br>
                         <table id="t18" class="table table-bordered table-striped table-hover">
                             <tr>
                                 <td class="red-print"><strong>المستحق عن بدل ساعات العمل الاضافى</strong></td>
@@ -749,7 +752,7 @@
                         </table>
                     </div>
                     <div class="table-responsive daysForVacation">
-                        <hr><br>
+                        <br><br>
                         <table id="t20" class="table table-bordered table-striped table-hover">
                             <tr>
                                 <td class="red-print"><strong>المستحق عن بدل الاعياد والعطل الرسمية</strong></td>
@@ -772,7 +775,7 @@
                         </table>
                     </div>
                     <div class="table-responsive daysForVacation2">
-                        <hr><br>
+                        <br><br>
                         <table id="t21" class="table table-bordered table-striped table-hover">
                             <tr>
                                 <td class="red-print"><strong>المستحق عن بدل الاعياد التى تصادف راحة اسبوعية</strong></td>
@@ -899,7 +902,7 @@
                         </table>
                     </div>
                     <div class="table-responsive treatmentFeesFull">
-                        <hr><br>
+                        <br><br>
                         <table id="t26" class="table table-bordered table-striped table-hover">
                             <tr>
                                 <td class="red-print"><strong>المستحق عن إصابة العمل بالاجر الكامل</strong></td>
@@ -1017,7 +1020,7 @@
                         </table>
                     </div>
                     <div class="table-responsive totalDisability">
-                        <hr><br>
+                        <br><br>
                         <table id="t32" class="table table-bordered table-striped table-hover">
                             <tr>
                                 <td class="red-print"><strong>العجز الدائم الكلى</strong></td>
@@ -1050,7 +1053,7 @@
                         </table>
                     </div>
                     <div class="table-responsive partDisability">
-                        <hr><br>
+                        <br><br>
                         <table id="t34" class="table table-bordered table-striped table-hover">
                             <tr>
                                 <td class="red-print"><strong>العجز الدائم الجزئى</strong></td>
@@ -1087,7 +1090,7 @@
                         </table>
                     </div>
                     <div class="table-responsive maternity">
-                        <hr><br>
+                        <br><br>
                         <table id="t36" class="table table-bordered table-striped table-hover">
                             <tr>
                                 <td class="red-print"><strong>مستحقات إجازة الوضع</strong></td>
@@ -1124,7 +1127,7 @@
                         </table>
                     </div>
                     <div class="table-responsive maternity2">
-                        <hr><br>
+                        <br><br>
                         <table id="t38" class="table table-bordered table-striped table-hover">
                             <tr>
                                 <td class="red-print"><strong>مستحقات إجازة عدة</strong></td>

@@ -118,6 +118,15 @@ html .slider-title {
     font-size: 13px !important;
 }
 
+.body-print .page0,
+.body-print .page1,
+.body-print .page2,
+.body-print .page3,
+.body-print .page4,
+.body-print .page5 {
+    height: 1150px;
+}
+
 .body-print .table {
     margin-bottom: 5px;
     border: 2px solid #b3a6a6;

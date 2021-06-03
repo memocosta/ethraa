@@ -403,7 +403,7 @@
             //  على القانون الجديد
             if (new Date(date_21_02_2010).getTime() < new Date(endDate).getTime()) {
                 let endTime = new Date(endDate);
-                let startTime = new Date(date_21_02_2010);
+                let startTime = (new Date(date_20_02_2010).getTime() < new Date(startDate).getTime()) ? new Date(startDate) : new Date(date_21_02_2010);
                 let days = 0,
                     month = 0,
                     years = 0;
@@ -819,16 +819,6 @@
         if (endDateAwardRes.isMoreFive) {
             endCalcHtml = `<tr>
                                 <td class="red-print">عن السنوات</td>
-                                <td>` + endDateAwardRes.tableData.spentMoreThan_5_years + `</td>
-                                <td></td>
-                                <td>x</td>
-                                <td></td>
-                                <td>` + work_salary + `</td>
-                                <td>=</td>
-                                <td>` + endDateAwardRes.tableData.last_5_years + `</td>
-                            </tr>
-                            <tr>
-                                <td class="red-print">عن السنوات</td>
                                 <td>5</td>
                                 <td>x</td>
                                 <td><span>` + work_salary + `</span> <hr> 26</td>
@@ -837,6 +827,17 @@
                                 <td>=</td>
                                 <td>` + endDateAwardRes.tableData.first_5_years + `</td>
                             </tr>
+                            <tr>
+                                <td class="red-print">عن السنوات</td>
+                                <td>` + endDateAwardRes.tableData.spentMoreThan_5_years + `</td>
+                                <td></td>
+                                <td>x</td>
+                                <td></td>
+                                <td>` + work_salary + `</td>
+                                <td>=</td>
+                                <td>` + endDateAwardRes.tableData.last_5_years + `</td>
+                            </tr>
+                            
                             <tr>
                                 <td class="red-print">عن الاشهر</td>
                                 <td><span>` + endDateAwardRes.tableData.workDate.month + `</span> <hr> 12</td>
@@ -1248,6 +1249,7 @@
     });
 
     $("#back-form").click(function(e) {
+        $("#v4").html("");
         $(".form-work").show();
         $(".form-result").hide();
         $("#bee").hide();
